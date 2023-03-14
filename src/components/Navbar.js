@@ -51,4 +51,4 @@ type props and also we can declare other props as well using objects*/
 Navbar.defaultProps={title:"Add a title here",
 aboutText:"add a aboutText here"}   
 
-// here by defaultProps we giving default value to props in case there is no value given or declare to props at the print time ...
+// here by defaultProps we giving default value to props in case there is no value given or declare to props at the print time ... ()
