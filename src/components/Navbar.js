@@ -17,7 +17,7 @@ export default function Navbar(props) { /*This is function based components crea
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
     {/* <Link className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} to="/">{props.title}</Link> */}
-    <a className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} href="/">{props.title}</a>
+    <a className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} href="#">{props.title}</a>
 
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -27,12 +27,12 @@ export default function Navbar(props) { /*This is function based components crea
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <li className="nav-item active mx-1">
         {/* <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/">TEXT</Link> */}
-        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="/">TEXT</a>
+        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="#">TEXT</a>
 
       </li>
       <li className="nav-item mx-2">
         {/* <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/Emoji">EMOJI</Link> */}
-        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="/Emoji">EMOJI</a>
+        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="#">EMOJI</a>
 
       </li>
     </ul>
