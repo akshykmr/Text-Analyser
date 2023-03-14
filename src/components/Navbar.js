@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 
 export default function Navbar(props) { /*This is function based components created using props */
@@ -16,7 +16,9 @@ export default function Navbar(props) { /*This is function based components crea
     <>
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
-    <Link className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} to="/">{props.title}</Link>
+    {/* <Link className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} to="/">{props.title}</Link> */}
+    <a className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} href="/">{props.title}</a>
+
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -24,10 +26,14 @@ export default function Navbar(props) { /*This is function based components crea
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <li className="nav-item active mx-1">
-        <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/">TEXT</Link>
+        {/* <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/">TEXT</Link> */}
+        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="/">TEXT</a>
+
       </li>
       <li className="nav-item mx-2">
-        <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/Emoji">EMOJI</Link>
+        {/* <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/Emoji">EMOJI</Link> */}
+        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="/Emoji">EMOJI</a>
+
       </li>
     </ul>
     <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'} mx-2`}> {/*  using ternary operator */}
