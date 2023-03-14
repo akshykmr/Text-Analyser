@@ -8,11 +8,11 @@ const [text, setText] = useState('');
 // text is a state variables and setText is function here wchich will help us to 
 //updated the text variable , the default value of text is defined here : Enter text here : ( this syntax is a syntax of state here) 
 
-const [isFocused, setIsFocused] = useState(false);
+// const [isFocused, setIsFocused] = useState(false);
   
-const handleFocus = () => {
-setIsFocused(true);
- };
+// const handleFocus = () => {
+// setIsFocused(true);
+//  };
 
 const handleUpClick = ()=>{
 // console.log("Uprcase was clicked");
@@ -30,6 +30,14 @@ setText(newText)
 const handleOnChange = (event)=> {
 // console.log("On Changed")
 setText(event.target.value) // listening a event here
+    if ( text.split(0) === " "){
+setWord('0')
+    }
+    
+        else {
+        setWord(text.split(" ").length)
+    }
+ 
 }
 
 const handleTitleClick = ()=>{
@@ -92,17 +100,25 @@ const handleFindClick = () => {
 //     { to be w
 
 //     }
-  
+const [word, setWord] = useState(0);
+ 
+
 
 return (
-<> 
-<div className="container">
+<>  
+ <div className={`container-fluid text-${props.mode==='dark'?'white':'black'}`}> 
 <h4>{props.heading}</h4>
-<button id="impbtn" type="button" className="btn btn-outline-infoo" onClick={handleImportText}>Import Text</button>
+<button id="impbtn" type="button" className={`btn btn-outline-infoo text-${props.mode==='dark'?'white':'black'}`} 
+onClick={handleImportText}>Import Text</button>
+<button id="impbtn" type="button" className={`btn btn-outline-infooo text-${props.mode==='dark'?'white':'black'}`} 
+onClick={handleClearClick}>Clear</button>
 <div className="mb-3">
-<textarea label="hello" placeholder="Input your text...." onFocus={handleFocus}  
-          className={` ${isFocused ? "focused" : ""}`} id="textBox" rows="8" value = {text}  onChange ={handleOnChange}>
-</textarea>
+{/* <textarea label="hello" onFocus={handleFocus}  
+          className={` ${isFocused ? "focused" : ""}`} placeholder="Input your text...." id="textBox" rows="8" value = {text}    onChange ={handleOnChange}>
+</textarea> */}
+<textarea className="form-control" placeholder="Input your text...." id="textBox" value={text} rows="8"
+ onChange ={handleOnChange} style={{ backgroundColor:props.mode==='dark'? '#1b1e217a': 'white', 
+ color:props.mode=== 'dark'?'white': 'black'}} ></textarea>
 </div>
 <div className="tools">
 <button type="button" className="btn btn-outline-success mx-2" onClick={handleUpClick}>UPPERCASE</button>
@@ -116,18 +132,20 @@ return (
 <button type="button" className="btn btn-outline-info mx-2" onClick={handleReversClick}>Revers</button>
 <button type="button" className="btn btn-outline-secondary mx-2" onClick={handleFindClick}>Find & Replace</button>
 </div>
-</div>
+
 <div className="container my-4">
-<h4>Text Summary</h4>
-<p>{text.split(" ").length} words and {text.length} Characters</p>
-<p> It will take {0.008*(text.split(" ").length)} Minutes to read the word</p>
-<h4> Preview </h4>
+<h4 className="my-2" >Text Summary</h4>
+{/* <p>{text.split(" ").length} words and {text.length} Characters</p> */}
+<p className="my-4">{word} words and {text.length} Characters</p>
+<p className="my-4"> It will take {0.008*(text.split(" ").length)} Minutes to read the word</p>
+<h4 className="my-4"> Preview </h4>
 <div className="toolss">
-<p>{text}</p>
+<p
+  style={{ backgroundColor:props.mode==='dark'? 'black': 'white', 
+ color:props.mode=== 'dark'?'grey': 'black', height:props.text===" "?'auto':'90px'}} >{text} </p>
 </div>
-
 </div>
-
+</div>
 </>
 )
 }

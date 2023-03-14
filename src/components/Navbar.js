@@ -1,33 +1,44 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 
 export default function Navbar(props) { /*This is function based components created using props */
 
 
-const [isFocused, setIsFocused] = useState(false);
+// const [isFocused, setIsFocused] = useState(false);
 
-const handleFocus = () => {
-  setIsFocused(true);
-};
+// const handleFocus = () => {
+//   setIsFocused(true);
+// };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-dark gradient-custom">
+    <>
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
-    <a className="navbar-brand" href="https://getbootstrap.com/docs/5.2/components/navbar/#nav">{props.title}</a>
+    <Link className={`navbar-brand text-${props.mode==='dark'?'primary':'danger'}`} to="/">{props.title}</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    
-    {/* <!-- Search form --> */}
-    <form className="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
-        <input type="search"  onFocus={handleFocus}  className={isFocused ? "focused " : ""} placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-dark mx-2"  type="button" data-mdb-ripple-color="red">
-          Search
-        </button>
-      </form>
+
+    <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li className="nav-item active mx-1">
+        <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/">TEXT</Link>
+      </li>
+      <li className="nav-item mx-2">
+        <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/Emoji">EMOJI</Link>
+      </li>
+    </ul>
+    <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'} mx-2`}> {/*  using ternary operator */}
+  <input className="form-check-input" onClick = {props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label  " htmlFor="flexSwitchCheckDefault">{props.mode}</label>
+</div> 
   </div>
+</div> 
 </nav>
+
+</>
   )
 }
 
