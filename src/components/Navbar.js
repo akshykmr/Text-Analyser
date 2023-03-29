@@ -27,12 +27,12 @@ export default function Navbar(props) { /*This is function based components crea
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <li className="nav-item active mx-1">
         {/* <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/">TEXT</Link> */}
-        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="#emoji">TEXT</a>
+        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="#">TEXT</a>
 
       </li>
       <li className="nav-item mx-2">
         {/* <Link className={`nav-link text-${props.mode==='dark'?'white':'black'}`} to="/Emoji">EMOJI</Link> */}
-        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="#">EMOJI</a>
+        <a className={`nav-link text-${props.mode==='dark'?'white':'black'}`} href="#emoji">EMOJI</a>
 
       </li>
     </ul>
