@@ -24,8 +24,7 @@ export default function Emoji(props) {
 
 
   return (
-    <div>
-      <>
+    <section id ='emoji'>
       <div className="container my-5">
       <h3 className="post-title entry-title" style={{ backgroundColor:props.mode==='dark'? '#1b1e217a': 'white', 
  color:props.mode=== 'dark'?'white': 'black', fontSize: "33px"}}>Emoji Copy and Paste</h3>
@@ -86,7 +85,6 @@ export default function Emoji(props) {
   <span className="emoji" onClick={selectEmoji} style={{ backgroundColor:props.mode==='dark'? '#1b1e217a': 'white'}}  data-clipboard-text="🤕" title="face with head-bandage">🤕</span>
   </div> 
       </div>
-      </>
-    </div>
+    </section>
   )
 }
